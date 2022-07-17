@@ -1,5 +1,5 @@
 //
-const URL = "6c837dfcef697002afd6a4d3377a8f81&q="
+const URL = "https://api.openweathermap.org/data/2.5/weather"
 const form = document.querySelector("form")
 const section = document.getElementById("weather")
 const search = document.getElementById("weather-search")
