@@ -1,6 +1,5 @@
 const form = document.querySelector("form")
 const section = document.getElementById("weather")
-
 form.onsubmit = async e => {
     e.preventDefault()
     const userLocation = form.search.value
@@ -9,9 +8,7 @@ form.onsubmit = async e => {
     if (!userLocation) return
     try {
         const response = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${userLocation}&units=imperial&appid=cbf6a4540c5e167330be7dd558d11f9a`)
-
         if (response.status !== 200) throw new Error ('Location not found. Please enter a valid city. (Ex: "Daytona Beach")')
-
         const weather = await response.json()
         renderWeatherData(weather)
         console.log(weather)
@@ -21,7 +18,6 @@ form.onsubmit = async e => {
         section.appendChild(errMessage)
     }
 }
-
 const renderWeatherData = (weather) => {
     section.innerHTML = `<h2>${weather.name}, ${weather.sys.country}</h2>`
 
@@ -54,7 +50,6 @@ const renderWeatherData = (weather) => {
     hour: 'numeric',
     minute: '2-digit'
     })
-
 const lastUpdate = document.createElement('p')
 lastUpdate.textContent = `Last updated at ${timeString}`
 section.appendChild(lastUpdate)
